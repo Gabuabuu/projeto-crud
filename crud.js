@@ -31,6 +31,17 @@ criaPost({ owner: 'Gabryel', content: 'Meu segundo post' })
 // READ
 
 function pegaPosts() {
-    return miniTwitter.posts
+    return miniRedeSocial.posts
  }
  console.log(pegaPosts())
+
+ // UPDATE
+ function atualizaContentPost(id, novoConteudo) {
+    const postAtualizado = pegaPosts().find((post) => {
+        return post.id ===id
+    })
+    console.log(postAtualizado)
+    postAtualizado.content = novoConteudo
+ }
+atualizaContentPost(1, 'novo conteudo do post')
+console.log(pegaPosts())
