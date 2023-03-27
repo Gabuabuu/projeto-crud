@@ -45,3 +45,16 @@ function pegaPosts() {
  }
 atualizaContentPost(1, 'novo conteudo do post')
 console.log(pegaPosts())
+
+ // DELETE
+
+ function apagaPost(id) {
+    const listaPostAtualizado = pegaPosts().filter((postAtual) => {
+    return postAtual.id !== id;
+    })
+    miniRedeSocial.posts = listaPostAtualizado;
+    console.log(listaPostAtualizado)
+ }
+ apagaPost(2)
+ apagaPost(3 )
+console.log(pegaPosts())
