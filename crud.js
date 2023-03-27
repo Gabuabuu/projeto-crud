@@ -1,6 +1,6 @@
 // Base de Dados Nossa
 
-const miniTwitter = {
+const miniRedeSocial = {
     usuarios: [
         {
             username: 'gabryel'
@@ -14,3 +14,16 @@ const miniTwitter = {
         }
     ]
 }
+
+// CREATE
+
+function criaPost(dados) {
+    miniRedeSocial.posts.push({
+        id: miniRedeSocial.posts.length +1,
+        owner: dados.owner,
+        content: dados.content
+    });
+}
+
+criaPost({ owner: 'Gabryel', content: 'Meu primeiro post' })
+criaPost({ owner: 'Gabryel', content: 'Meu segundo post' })
