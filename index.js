@@ -13,17 +13,18 @@ const miniRedeSocial = {
             content: 'Meu primeiro post'
         } // Sempre que for criado um "post" novo, esse array (posts) será atualizado
     ],
-     criaPost(dados) {
+    criaPost(dados) {
+        // Cria Posts na memoria (Array/Objeto)
         miniRedeSocial.posts.push({
             id: miniRedeSocial.posts.length + 1,
             owner: dados.owner,
             content: dados.content
         });
+        // Cria post no html
+        const $listaDePosts = document.querySelector('.listaDePosts');
+        $listaDePosts.insertAdjacentHTML('afterbegin', `<li>${dados.content}</li>`)
     }
 }
-
-miniRedeSocial.criaPost({ owner: 'gabryel', content: 'segudno post' })
-console.log(miniRedeSocial.posts)
 
 // [Código Front End: Web]
 
@@ -33,10 +34,9 @@ console.log($meuForm);
 $meuForm.addEventListener('submit', function criaPostController(infosDoEvento) {
     infosDoEvento.preventDefault()
     const $campoCriaPost = document.querySelector('input[name="criaPost"]');
-    const $listaDePosts = document.querySelector('.listaDePosts');
+    miniRedeSocial.criaPost({ owner: 'gabryel', content: 'segundo post' })
+    console.log(miniRedeSocial.posts)
 
 
-    console.log("Post novo criado com sucesso")
-    $listaDePosts.insertAdjacentHTML('afterbegin', `<li>${$campoCriaPost.value}</li>`)
     $campoCriaPost.value = ''
 })
