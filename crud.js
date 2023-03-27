@@ -27,3 +27,10 @@ function criaPost(dados) {
 
 criaPost({ owner: 'Gabryel', content: 'Meu primeiro post' })
 criaPost({ owner: 'Gabryel', content: 'Meu segundo post' })
+
+// READ
+
+function pegaPosts() {
+    return miniTwitter.posts
+ }
+ console.log(pegaPosts())
